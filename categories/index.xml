@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Northendlab | Blog Template</title>
-    <link>jamesmshihua.github.io/categories/</link>
+    <link>./categories/</link>
     <description>Recent content in Categories on Northendlab | Blog Template</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 12 May 2020 13:30:00 +0000</lastBuildDate>
     
-	<atom:link href="jamesmshihua.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="./categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>abouts</title>
-      <link>jamesmshihua.github.io/categories/abouts/</link>
+      <link>./categories/abouts/</link>
       <pubDate>Tue, 12 May 2020 13:30:00 +0000</pubDate>
       
-      <guid>jamesmshihua.github.io/categories/abouts/</guid>
+      <guid>./categories/abouts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Meta Data</title>
-      <link>jamesmshihua.github.io/categories/meta-data/</link>
+      <link>./categories/meta-data/</link>
       <pubDate>Mon, 24 Feb 2020 23:30:00 +0000</pubDate>
       
-      <guid>jamesmshihua.github.io/categories/meta-data/</guid>
+      <guid>./categories/meta-data/</guid>
       <description></description>
     </item>
     
