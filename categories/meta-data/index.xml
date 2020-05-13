@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meta Data on Northendlab | Blog Template</title>
-    <link>jamesmshihua.github.io/categories/meta-data/</link>
+    <link>/categories/meta-data/</link>
     <description>Recent content in Meta Data on Northendlab | Blog Template</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Feb 2020 23:30:00 +0000</lastBuildDate>
     
-	<atom:link href="jamesmshihua.github.io/categories/meta-data/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/meta-data/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>1D Finite Volume Method</title>
-      <link>jamesmshihua.github.io/1d-fvm/</link>
+      <link>/1d-fvm/</link>
       <pubDate>Mon, 24 Feb 2020 23:30:00 +0000</pubDate>
       
-      <guid>jamesmshihua.github.io/1d-fvm/</guid>
+      <guid>/1d-fvm/</guid>
       <description>Introduction Object We are going to numerically solve the one-dimensional inviscid Burgers equation using multiple methods here.</description>
     </item>
     
