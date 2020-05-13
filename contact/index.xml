@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Contact Me on Northendlab | Blog Template</title>
-    <link>https://jamesmshihua.github.io/contact/</link>
+    <link>jamesmshihua.github.io/contact/</link>
     <description>Recent content in Contact Me on Northendlab | Blog Template</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://jamesmshihua.github.io/contact/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="jamesmshihua.github.io/contact/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
