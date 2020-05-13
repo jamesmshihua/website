@@ -1,19 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url>
-		<loc>http://www.mshihua.student.ust.hk/index.html</loc>
-		<lastmod>2018-07-22</lastmod>
-	</url>
-	<url>
-		<loc>http://www.mshihua.student.ust.hk/about/index.html</loc>
-		<lastmod>2018-07-22</lastmod>
-	</url>
-	<url>
-		<loc>http://www.mshihua.student.ust.hk/album/index.html</loc>
-		<lastmod>2018-07-22</lastmod>
-	</url>
-	<url>
-		<loc>http://www.mshihua.student.ust.hk/contact/index.php</loc>
-		<lastmod>2018-07-22</lastmod>
-	</url>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://examplesite.com/categories/abouts/</loc>
+    <lastmod>2020-05-12T13:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/categories/</loc>
+    <lastmod>2020-05-12T13:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/cv/</loc>
+    <lastmod>2020-05-12T13:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/</loc>
+    <lastmod>2020-05-12T13:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/1d-fvm/</loc>
+    <lastmod>2020-02-24T23:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/categories/meta-data/</loc>
+    <lastmod>2020-02-24T23:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/abouts/</loc>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/author/</loc>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/abouts/john-doe/</loc>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/author/john-doe/</loc>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/author/mark-dinn/</loc>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/search/</loc>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://examplesite.com/tools/</loc>
+  </url>
+  
 </urlset>

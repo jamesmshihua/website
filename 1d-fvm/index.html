@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>1D Finite Volume Method</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description"
+    content="This is meta description">
+  
+  <meta name="author" content="James">
+  <meta name="generator" content="Hugo 0.69.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://examplesite.com/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://examplesite.com/plugins/themify-icons/themify-icons.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://examplesite.com/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://examplesite.com/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://examplesite.com/images/favicon.png " type="image/x-icon">
+
+  
+  
+  
+
+</head><body>
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="fixed-top navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <a class="navbar-brand"href="https://examplesite.com/"><img class="img-fluid" src="/images/logo.svg" alt="Northendlab | Blog Template"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://examplesite.com/"> Home </a>
+          </li>
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://examplesite.com/categories/abouts/">about</a>
+            </li>
+            
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://examplesite.com/tools">tools</a>
+            </li>
+            
+          
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://examplesite.com/contact">Contact</a>
+            </li>
+            
+          
+        </ul>
+        
+        <!-- search -->
+        <div class="search">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://examplesite.com//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</header>
+<!-- /navigation --> <div class="py-5 d-none d-lg-block"></div> 
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto block shadow mb-5">
+        <h2>1D Finite Volume Method</h2>
+        <div class="mb-3 post-meta">
+          <a href="/author/james">James</a>,
+          24/02/2020, 
+          <a href="/categories/meta-data">Meta data</a>
+          
+        </div>
+        
+        <img src="/images/post/post-1.jpg" class="img-fluid w-100 mb-4" alt="1D Finite Volume Method">
+        
+        <div class="content mb-5">
+          <h2 id="introduction">Introduction</h2>
+<h3 id="object">Object</h3>
+<p>We are going to numerically solve the one-dimensional inviscid Burgers equation using multiple methods here. The equation is written in a conservation form, which is
+$$
+\begin{equation}
+\frac{\partial u}{\partial t}+\frac{\partial f}{\partial x}=0
+\end{equation}
+$$
+with a transport quantity $u$ and flux $f=\frac{1}{2} u^{2}$. The initial condition is given with in the spatial domain $x\in[0,1]$ and periodic, where
+$$
+\begin{equation}
+u^{0}(x)=0.1+\sin (2 \pi x).
+\end{equation}
+$$</p>
+<h3 id="tools">Tools</h3>
+<p>In this project the majority part of programming and computational work is done in Matlab, while some minor equation manipulation is done manually or by Mathematica.</p>
+<h2 id="numerical-methods">Numerical Methods</h2>
+<h3 id="initial-condition">Initial Condition</h3>
+<p>The initial condition was specified at nodes, which needs to be converted into cell averages. In this 1D advection problem, cell averages are calculated by
+$$
+\begin{equation}
+u_{j}^{0} \equiv \frac{1}{\Delta x_{j}} \int_{x_{j-1 / 2}}^{x_{j+1 / 2}} u^{0}(x) d x.
+\end{equation}
+$$
+With a prescribed number of cells $Nx$ and CFL number, it is possible to calculate $\Delta x=\frac{1}{\text{Nx}}$, $\Delta t=\frac{\text{CFL}\Delta x}{u^0_{max}}$ and $\text{Nt}=\frac{1}{\Delta t}$. Note that $\text{Nt}$ may not be an integer, so the following procedures are necessary for the accuracy of our evaluation:
+$$\begin{align}
+\text{Nt} &amp;=\text{ceil}(\text{Nt})\\<br>
+\Delta t &amp;= \frac{1}{\text{Nt}}.
+\end{align}$$
+Also, in most cases of this project, cell centroid
+$$
+\begin{equation}
+\bar{x_j}=(x_{j-1/2}+x_{j+1/2})/2
+\end{equation}
+$$.</p>
+<h3 id="first-order-finite-volume-fv1">First-order Finite Volume (FV1)</h3>
+<p>Forward-Euler time stepping
+$$
+\begin{equation}
+u_{j}^{n+1}=u_{j}^{n}-\frac{\Delta t}{\Delta x}\left(\hat{F}_{j+1 / 2}-\hat{F}_{j-1 / 2}\right)
+\label{forEuler}
+\end{equation}
+$$
+with the Godunov flux
+$$
+\begin{align}
+\hat{F}_{j+1 / 2}=&amp; \begin{cases}{\underset{u_{j} \leq u \leq u_{j+1}}{\min} f(u)} &amp; {\text { when } u_{j} \leq u_{j+1}} \\<br>
+{\underset{u_{j+1} \leq u \leq u_{j}}{\max} f(u)} &amp; {\text { when } u_{j}&gt;u_{j+1}}\end{cases}.
+\\<br>
+\hat{F}_{j-1 / 2}=&amp;  \begin{cases}{\underset{u_{j-1} \leq u \leq u_{j}}{\min} f(u)} &amp; {\text { when } u_{j} \geq u_{j-1}} \\<br>
+{\underset{u_{j} \leq u \leq u_{j-1}}{\max} f(u)} &amp; {\text { when } u_{j}&lt; u_{j-1}}\end{cases}.
+\label{fv1_flux}
+\end{align}
+$$</p>
+<h3 id="lax-wendroff-lw">Lax-Wendroff (LW)</h3>
+<p>The Lax-Wendroff flux is
+$$
+\begin{align}
+\hat{F}_ {j+\frac{1}{2}}^{LW}=&amp;\frac{1}{2}(f_{j}+f_{j+1})-\frac{1}{2}\hat{a}_{j+\frac{1}{2}}^{2}\frac{\Delta t}{\Delta x}(u_{j+1}-u_{j})\\<br>
+\hat{F}_ {j-\frac{1}{2}}^{LW}=&amp;\frac{1}{2}(f_{j-1}+f_{j})-\frac{1}{2}\hat{a}_{j-\frac{1}{2}}^{2}\frac{\Delta t}{\Delta x}(u_{j}-u_{j-1})
+\label{lw_flux}
+\end{align}
+$$
+where
+$$
+\begin{aligned}
+\hat{a}_{j+1 / 2}=&amp;\begin{cases}{\frac{f_{j+1}-f_{j}}{u_{j+1}-u_{j}}} &amp; {\text { when } u_{j+1} \neq u_{j}} \ {f^{\prime}\left(u_{j}\right)} &amp; {\text { when } u_{j+1}=u_{j}}\end{cases}
+\\<br>
+\hat{a}_{j-1 / 2}=&amp;\begin{cases}{\frac{f_{j}-f_{j-1}}{u_{j}-u_{j-1}}} &amp; {\text { when } u_{j-1} \neq u_{j}} \ {f^{\prime}\left(u_{j}\right)} &amp; {\text { when } u_{j-1}=u_{j}}. \end{cases}
+\end{aligned}
+$$
+In this particular case where $f=1/2u^2$, $f^\prime=u$. Here, wave transport speed $\hat{a}$ is introduced to properly determine the upwind direction. Time integration is still forward-Euler \eqref{forEuler}. However, this method is not TVD which involves numerical dispersion.</p>
+<h3 id="superbee-flux-limited-lax-wendroff-sb">Superbee Flux-Limited Lax-Wendroff (SB)</h3>
+<p>The Superbee scheme constructs a mixture of Godunov flux \eqref{fv1_flux} and Lax-Wendroff flux \eqref{lw_flux}:
+$$
+\begin{aligned}
+\hat{F}_ {j+\frac{1}{2}}^{\mathrm{FLLW}}&amp;=\hat{F}_{j+\frac{1}{2}}^{\mathrm{FV} 1}+\phi_{j+\frac{1}{2}}\left(\hat{F}_{j+\frac{1}{2}}^{\mathrm{LW}}-\hat{F}_{j+\frac{1}{2}}^{\mathrm{FV} 1}\right) \\<br>
+\hat{F}_ {j-\frac{1}{2}}^{\mathrm{FLLW}}&amp;=\hat{F}_{j-\frac{1}{2}}^{\mathrm{FV} 1}+\phi_{j-\frac{1}{2}}\left(\hat{F}_{j-\frac{1}{2}}^{\mathrm{LW}}-\hat{F}_{j-\frac{1}{2}}^{\mathrm{FV} 1}\right).
+\end{aligned}
+$$
+$\phi$ is the superbee limiter defined by
+$$
+\begin{equation}
+\phi(r)=\max (0, \min (2 r, 1), \min (r, 2))
+\end{equation}
+$$
+where
+$$
+\begin{equation}
+\begin{aligned}
+\hat{a}_{j+1 / 2}=&amp;\begin{cases}{\frac{f_{j+1}-f_{j}}{u_{j+1}-u_{j}}} &amp; {\text { when } u_{j+1} \neq u_{j}} \\ {f^{\prime}\left(u_{j}\right)} &amp; {\text { when } u_{j+1}=u_{j}}\end{cases}. \\<br>
+\hat{a}_{j-1 / 2}=&amp;\begin{cases}{\frac{f_{j}-f_{j-1}}{u_{j}-u_{j-1}}} &amp; {\text { when } u_{j-1} \neq u_{j}} \\dases {f^{\prime}\left(u_{j}\right)} &amp; {\text { when } u_{j-1}=u_{j}}. \end{cases}.
+\end{aligned}<br>
+\end{equation}
+$$
+Time integration is still forward-Euler \eqref{forEuler}.</p>
+<h3 id="slope-limited-second-order-finite-volume-fv2">Slope-Limited Second-Order Finite-Volume (FV2)</h3>
+<p>In this method, the state in each cell is reconstructed to be a linear function,
+$$\begin{equation}
+\tilde{u}(x)=u_{j}+s_{j}\left(x-x_{j}\right)
+\end{equation}$$
+where $x_j$ is the centroid of cell $j$, calculated by \cref{centroid}. The slope $s_j$ is computed from (limited by) the harmonic mean
+$$\begin{equation}
+s_{j}=L\left(s_{j-\frac{1}{2}}, s_{j+\frac{1}{2}}\right)=\begin{cases}{0} &amp; {s_{j-\frac{1}{2}} s_{j+\frac{1}{2}}&lt;0} \\<br>
+{\frac{2 s_{j-\frac{1}{2}} s_{j+\frac{1}{2}}}{s_{j-\frac{1}{2}}+s_{j+\frac{1}{2}}}} &amp; {\text { otherwise }}\end{cases}.
+\end{equation}$$
+where
+$$\begin{equation}
+s_{j-\frac{1}{2}}=\frac{u_{j}-u_{j-1}}{\Delta x}, \quad s_{j+\frac{1}{2}}=\frac{u_{j+1}-u_{j}}{\Delta x}.
+\end{equation}$$
+The flux here is not calculated by two cell average but by the *interpolated state and unchanged neighbours*. In particular, the flux is still Godunov flux \eqref{fv1_flux} but *only* $u_j$ will be interpolated. This time, time integration is modified Euler (EK2)
+$$\begin{equation}
+\begin{aligned}
+\mathbf{f}_{0} &amp;=\mathbf{f}\left(\mathbf{u}^{n}, t^{n}\right) \\ \mathbf{f}_{1} &amp;=\mathbf{f}\left(\mathbf{u}^{n}+\frac{1}{2} \Delta t \mathbf{f}_{0}, t^{n+\frac{1}{2}}\right) \\ \mathbf{u}^{n+1} &amp;=\mathbf{u}^{n}+\Delta t \mathbf{f}_{1}.
+\end{aligned}
+\end{equation}$$</p>
+<h3 id="quadratic-upstream-interpolation-for-convection-kinematics-quick">Quadratic Upstream Interpolation for Convection Kinematics (QUICK)</h3>
+<p>In this method, cell average becomes nodal-stored states (finite difference). Use a semi-discrete approach
+$$\begin{equation}
+\frac{d u_{j}}{d t}=-\left.f_{x}\right|_{j} = \frac{F_{j+\frac{1}{2}}-F_{j-\frac{1}{2}}}{\Delta x}.
+\end{equation}$$
+Flux approximation $F$ is in the form of
+$$\begin{equation}
+F=\frac12 q\phi
+\end{equation}$$
+due to our flux is $f=1/2u^2$, where $q$ is the transported speed
+$$\begin{equation}
+\begin{aligned}
+q_{j+\frac{1}{2}} =&amp;\frac{1}{2}(u_{j}+u_{j+1})\\<br>
+q_{j-\frac{1}{2}} =&amp;\frac{1}{2}(u_{j}+u_{j-1})
+\end{aligned}
+\end{equation}$$
+and $\phi$ is the transported quantity ($u$ in our case) with a three-point interpolation
+$$\begin{equation}
+\begin{aligned}
+\phi_{j+\frac{1}{2}}&amp;=\begin{cases}{\dfrac{3 u_{j+1}+6 u_{j}-u_{j-1}}{8}} &amp; {\text { if }  q_{j+\frac{1}{2}}&gt;0} \\ {\dfrac{3 u_{j}+6 u_{j+1}-u_{j+2}}{8}} &amp; {\text { if } q_{j+\frac{1}{2}} \leq 0}\end{cases}.\\<br>
+\phi_{j-\frac{1}{2}}&amp;=\begin{cases}{\dfrac{3 u_{j-}+6 u_{j-1}-u_{j-2}}{8}} &amp; {\text { if }  q_{j-\frac{1}{2}}&gt;0} \\ {\dfrac{3 u_{j-1}+6 u_{j}-u_{j+1}}{8}} &amp; {\text { if } q_{j-\frac{1}{2}} \leq 0}\end{cases}.
+\end{aligned}
+\label{intp}
+\end{equation}$$</p>
+<h3 id="quick-with-the-smart-limiter-smart">QUICK with the SMART limiter (SMART)</h3>
+<p>Different from the previous section where $\phi$ is interpolated by \eqref{intp}, a SMART limiter will be applied here. First introduce a smoothness monitor which admits the following <em>general form</em>
+$$\begin{equation}
+\phi_j=\frac{\text{UW1}-\text{UW2}}{\text{DW1}-\text{UW2}}
+\end{equation}$$
+(UW for upwind and DW for downwind, determined by the wave propagation direction and the location that flux being calculated). The SMART limiter is defined as
+$$\begin{equation}
+\hat{\phi}_ {j\pm \frac{1}{2}}=\begin{cases}{\hat{\phi}_{j}} &amp; {\hat{\phi}_{j}&lt;0 \quad \text { or } \quad \hat{\phi}_{j}&gt;1} \\<br>
+{3 \hat{\phi}_{j}} &amp; {0&lt;\hat{\phi}_{j}&lt;\frac{1}{6}} \\
+{\frac{3}{8}\left(2 \hat{\phi}_{j}+1\right)} &amp; {\frac{1}{6}&lt;\hat{\phi}_{j}&lt;\frac{5}{6}} \\<br>
+{1} &amp; {\frac{5}{6}&lt;\hat{\phi}_{j}&lt;1}\end{cases}.
+\end{equation}$$
+Then we solve the actual $\phi_{j\pm1/2}$ by
+$$\begin{equation}
+\phi_{j\pm \frac{1}{2}} = \hat\phi_{j\pm \frac{1}{2}}(\text{DW1}-\text{UW2})+\text{UW2}.
+\end{equation}$$
+**Note that SMART limiter does not turn QUICK into TVD**.</p>
+<h2 id="results">Results</h2>
+<p>All six methods discussed above are implemented to solve the Burgers equation with $T = 0.1$, $0.5$, $1$, and $Nx = 64$, $128$. Figures show the state $u$ on the $x$ stencil with different $T$ and $N_x$.</p>
+<p>It is found that the left half travels towards right and the right half travels towards left, thus forming a shock in the middle range. The results agree with the fact that LW, QUICK and SMART are not TVD, which lead to dispersion near the shock. The shock position of FV2 is slightly different from others, mainly due to the slope is limited by the harmonic average, so does the wave speed.</p>
+<p>As can be seen from convergence plot, when $T=0.1$, all methods exhibits a convergence rate near their order-of-accuracy. When $T&gt;0.5$, the presence of shock makes non-TVD methods incapable to converge. Also, in face of a shock, flux limiters reduce the order-of-accuracy so second-order scheme has a convergence rate between 1 and 2.</p>
+<p>In summary, both FV2 and Superbee exhibit higher order-of-accuracy ($1&lt;p&lt;2$), which are best candidate schemes for this problem. FV1 has $p\approx1$, which matches its first-order accuracy. LW and QUICK are second-order accurate but not TVD, so they introduce spurious oscillations into the solution where shocks are present. SMART is not TVD the flux limiter is not strong enough to counter the non-linearity in this problem.</p>
+<p><img src="/images/post/1D-FVM/fv1_T=10_Nx=128.png" alt="image1">
+<img src="/images/post/1D-FVM/LW_T=10_Nx=128.png" alt="image2">
+<img src="/images/post/1D-FVM/SB_T=10_Nx=128.png" alt="image3">
+<img src="/images/post/1D-FVM/fv2_T=10_Nx=128.png" alt="image4">
+<img src="/images/post/1D-FVM/QUICK_T=10_Nx=128.png" alt="image5">
+<img src="/images/post/1D-FVM/SMART_T=10_Nx=128.png" alt="image6"></p>
+<h2 id="codes">Codes</h2>
+<p>Go to Tools &ndash; Codes</p>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<footer class="py-4 bg-light border-top">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        <a href="https://examplesite.com/" class="d-block pb-3"><img src="/images/logo.svg" class="img-fluid" alt="Northendlab | Blog Template"></a>
+      </div>
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <ul class="list-inline mb-0">
+          
+        </ul>
+      </div>
+      <div class="col-lg-4 text-lg-right text-center mb-4 mb-lg-0">
+        <ul class="list-inline social-icon mb-0">
+          
+          <li class="list-inline-item"><a href="https://www.facebook.com/shihuamingzhi"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a href="#"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a href="https://github.com/jamesmshihua"><i class="ti-github"></i></a></li>
+          
+          <li class="list-inline-item"><a href="https://www.linkedin.com/in/james-mingzhi-shihua-b4897a173/"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <span>© 2020 <a href="https://gethugothemes.com">Gethugothemes</a> All Rights Reserved</span>
+    </div>
+  </div>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+
+
+
+
+<script>
+  var indexURL = "https://examplesite.com/index.json"
+</script>
+
+
+<!-- JS Plugins -->
+
+<script src="https://examplesite.com/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://examplesite.com/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://examplesite.com/plugins/search/fuse.min.js"></script>
+
+<script src="https://examplesite.com/plugins/search/mark.js"></script>
+
+<script src="https://examplesite.com/plugins/search/search.js"></script>
+
+
+<!-- Main Script -->
+
+<script src="https://examplesite.com/js/script.min.js"></script>
+
+<!-- google analitycs -->
+</body>
+
+</html>
