@@ -298,7 +298,7 @@ $$\begin{equation}
 <p>As can be seen from convergence plot, when $T=0.1$, all methods exhibits a convergence rate near their order-of-accuracy. When $T&gt;0.5$, the presence of shock makes non-TVD methods incapable to converge. Also, in face of a shock, flux limiters reduce the order-of-accuracy so second-order scheme has a convergence rate between 1 and 2.</p>
 <p>In summary, both FV2 and Superbee exhibit higher order-of-accuracy ($1&lt;p&lt;2$), which are best candidate schemes for this problem. FV1 has $p\approx1$, which matches its first-order accuracy. LW and QUICK are second-order accurate but not TVD, so they introduce spurious oscillations into the solution where shocks are present. SMART is not TVD the flux limiter is not strong enough to counter the non-linearity in this problem.</p>
 <p><img src="/images/post/1D-FVM/fv1_T=10_Nx=128.png" alt="image1">
-<img src="/images/post/1D-FVM/LW_T=10_Nx=128.png" alt="image2">
+<img src="/images/post/1D-FVM/LW_T=10_Nx=128.jpg" alt="image2">
 <img src="/images/post/1D-FVM/SB_T=10_Nx=128.png" alt="image3">
 <img src="/images/post/1D-FVM/fv2_T=10_Nx=128.png" alt="image4">
 <img src="/images/post/1D-FVM/QUICK_T=10_Nx=128.png" alt="image5">
