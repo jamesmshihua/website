@@ -587,28 +587,27 @@ $$</p>
 <p>It is found that the left half travels towards right and the right half travels towards left, thus forming a shock in the middle range. The results agree with the fact that LW, QUICK and SMART are not TVD, which lead to dispersion near the shock. The shock position of FV2 is slightly different from others, mainly due to the slope is limited by the harmonic average, so does the wave speed.</p>
 <p>As can be seen from convergence plot, when $T=0.1$, all methods exhibits a convergence rate near their order-of-accuracy. When $T&gt;0.5$, the presence of shock makes non-TVD methods incapable to converge. Also, in face of a shock, flux limiters reduce the order-of-accuracy so second-order scheme has a convergence rate between 1 and 2.</p>
 <p>In summary, both FV2 and Superbee exhibit higher order-of-accuracy ($1&lt;p&lt;2$), which are best candidate schemes for this problem. FV1 has $p\approx1$, which matches its first-order accuracy. LW and QUICK are second-order accurate but not TVD, so they introduce spurious oscillations into the solution where shocks are present. SMART is not TVD the flux limiter is not strong enough to counter the non-linearity in this problem.</p>
-<figure class="img-sm">
+<p><figure class="small">
     <img src="/images/post/1D-FVM/fv1_T=10_Nx=128.png"/> 
 </figure>
 
-<!-- ![image1](/images/post/1D-FVM/fv1_T=10_Nx=128.png) -->
-<p><figure class="img-sm">
+<figure class="small">
     <img src="/images/post/1D-FVM/LW_T=10_Nx=128.jpg"/> 
 </figure>
 
-<figure class="img-sm">
+<figure class="small">
     <img src="/images/post/1D-FVM/SB_T=10_Nx=128.png"/> 
 </figure>
 
-<figure class="img-sm">
+<figure class="small">
     <img src="/images/post/1D-FVM/fv2_T=10_Nx=128.png"/> 
 </figure>
 
-<figure class="img-sm">
+<figure class="small">
     <img src="/images/post/1D-FVM/QUICK_T=10_Nx=128.png"/> 
 </figure>
 
-<figure class="img-sm">
+<figure class="small">
     <img src="/images/post/1D-FVM/SMART_T=10_Nx=128.png"/> 
 </figure>
 </p>
