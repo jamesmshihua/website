@@ -18,16 +18,5 @@
       
     </item>
     
-    <item>
-      <title>FEM</title>
-      <link>https://example.com/post/fem/</link>
-      <pubDate>Mon, 24 Feb 2020 23:30:00 +0000</pubDate>
-      
-      <guid>https://example.com/post/fem/</guid>
-      
-        <description>Q1 Mesh The following diagram shows the mesh. Local displacement equation Denote the force and displacement on the $j$-th node of the $i$-th element as $P_j^i$ and $u_j^i$.</description>
-      
-    </item>
-    
   </channel>
 </rss>
