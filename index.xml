@@ -2,28 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My blog</title>
-    <link>https://example.com/</link>
+    <link>https://jamesmshihua.com/</link>
     <description>Recent content on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://jamesmshihua.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1D Finite Volume Method (FVM)</title>
-      <link>https://example.com/post/1d-fvm/</link>
-      <pubDate>Mon, 24 Feb 2020 23:30:00 +0000</pubDate>
+      <title>About</title>
+      <link>https://jamesmshihua.com/about/</link>
+      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/post/1d-fvm/</guid>
+      <guid>https://jamesmshihua.com/about/</guid>
       
-        <description>Introduction Object We are going to numerically solve the one-dimensional inviscid Burgers equation using multiple methods here.</description>
+        <description>I&amp;rsquo;m a PhD student in the Hong Kong University of Science and Technology, a Hong Kong PhD Fellowship Scheme awardee.</description>
       
     </item>
     
     <item>
       <title></title>
-      <link>https://example.com/archives/</link>
+      <link>https://jamesmshihua.com/archives/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/archives/</guid>
+      <guid>https://jamesmshihua.com/archives/</guid>
       
         <description></description>
       
@@ -31,34 +30,23 @@
     
     <item>
       <title>Contact</title>
-      <link>https://example.com/contact/</link>
+      <link>https://jamesmshihua.com/contact/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/contact/</guid>
+      <guid>https://jamesmshihua.com/contact/</guid>
       
         <description></description>
       
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://example.com/about/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/about/</guid>
-      
-        <description>I&amp;rsquo;m a Hong Kong PhD Fellowship Scheme (HKPFS) awardee, PhD student, in the Hong Kong University of Science and Technology (HKUST), major in Mechanical Engineering (officially), in fact, Aerospace Engineering.</description>
-      
-    </item>
-    
-    <item>
       <title></title>
-      <link>https://example.com/imprint/</link>
+      <link>https://jamesmshihua.com/imprint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/imprint/</guid>
+      <guid>https://jamesmshihua.com/imprint/</guid>
       
-        <description>Disclaimer There is absolutely no guarantee for the correctness and accuracy of the contents presented in this blog.</description>
+        <description>Disclaimer There is absolutely no guarantee for the correctness of the information presented in this blog, some of which is purely based on my personal experience.</description>
       
     </item>
     
