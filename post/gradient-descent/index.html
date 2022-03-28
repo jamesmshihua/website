@@ -194,7 +194,7 @@
 
     ,
         "url" : "https:\/\/jamesmshihua.com\/post\/gradient-descent\/",
-        "wordCount" : "530",
+        "wordCount" : "625",
         "genre" : [ ],
         "keywords" : [ 
       
@@ -490,7 +490,7 @@ $$</p>
          alt="image"/> 
 </figure>
 
-<figure class="middle">
+<figure class="small">
     <img src="/images/gdm1/table1.png"
          alt="image"/> 
 </figure>
@@ -520,7 +520,13 @@ $$</p>
 </figure>
 
 <p>In summary, preconditioning the function makes the original elliptical (anisotropic) contour lines circular (isotropic).</p>
-<h3 id="something">something</h3>
+<p>Formally, the preconditioned steepest descent is</p>
+<p>$$
+\mathbf{x}_ {n+1}=\mathbf{x}_ {n}+\mathbf{H}_{n}^{-1}\alpha_{n} \mathbf{d}_{n}
+$$</p>
+<p>where $\mathbf{H}_{n}^{-1}$ is called the <strong>preconditioner</strong>, which must be <strong>symmetric positive definite</strong>. We will mention later that, in Newton&rsquo;s Method, $\mathbf{H}$ is the Hessian of $F$.</p>
+<h3 id="inexact-line-search">Inexact Line Search</h3>
+<p>Previously, we have performed an exact line search with preconditioning, with analytic gradient and preconditioner. However, these two pieces of information are not always available. In addition, exact line search induces another optimisation over the search path, and may be too computationally expensive to use in practical cases. Often, we use <strong>inexact line search</strong> instead.</p>
 
 
 
