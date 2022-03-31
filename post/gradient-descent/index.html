@@ -18,7 +18,7 @@
   </title>
 
   
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.95.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta
     name="description"
     content="
@@ -44,8 +44,8 @@
   
   <link
     rel="stylesheet"
-    href="/css/markupHighlight.min.793b323d7f2d9fbfd0b93f4d593fb5ad77b918716ed33eddea403fa87f770403.css"
-    integrity="sha256-eTsyPX8tn7/QuT9NWT&#43;1rXe5GHFu0z7d6kA/qH93BAM="
+    href="/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css"
+    integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU="
     crossorigin="anonymous"
     type="text/css"
   />
@@ -88,8 +88,8 @@
   
   <script
     type="text/javascript"
-    src="/js/anatole-header.min.5c846cefa5ed21cceee981c70901aaf21b17b4e0b05bd777af840780918abea9.js"
-    integrity="sha256-XIRs76XtIczu6YHHCQGq8hsXtOCwW9d3r4QHgJGKvqk="
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
     crossorigin="anonymous"
   ></script>
 
@@ -98,8 +98,8 @@
     
     <script
       type="text/javascript"
-      src="/js/anatole-theme-switcher.min.245da778410d349aba672975fe9ff04e24e608155cc9102b5c1c70554c1539c0.js"
-      integrity="sha256-JF2neEENNJq6Zyl1/p/wTiTmCBVcyRArXBxwVUwVOcA="
+      src="/js/anatole-theme-switcher.min.560a26330d27ff44a44e83b53cd07a95d4230a65930d31c5c76a8d481e5b35bf.js"
+      integrity="sha256-VgomMw0n/0SkToO1PNB6ldQjCmWTDTHFx2qNSB5bNb8="
       crossorigin="anonymous"
     ></script>
 
@@ -121,10 +121,10 @@
   <meta property="og:title" content="Gradient Descent" />
 <meta property="og:description" content="Gradient Descent Method and its improvements." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jamesmshihua.com/post/gradient-descent/" />
-<meta property="og:image" content="https://jamesmshihua.com/images/site-feature-image.png"/>
+<meta property="og:url" content="https://jamesmshihua.com/post/gradient-descent/" /><meta property="og:image" content="https://jamesmshihua.com/images/site-feature-image.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-21T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-03-21T00:00:00+00:00" /><meta property="og:site_name" content="My blog" />
+
 
 
 
@@ -194,7 +194,7 @@
 
     ,
         "url" : "https:\/\/jamesmshihua.com\/post\/gradient-descent\/",
-        "wordCount" : "625",
+        "wordCount" : "1002",
         "genre" : [ ],
         "keywords" : [ 
       
@@ -301,8 +301,8 @@
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.7d3bf3472b73d9ba107b3de37d0df8fa736593a3c6638c95eaed42006bfc0193.js"
-    integrity="sha256-fTvzRytz2boQez3jfQ34&#43;nNlk6PGY4yV6u1CAGv8AZM="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
@@ -428,7 +428,7 @@
           </li>
           <li class="post__meta-item">
             <em class="fas fa-stopwatch post__meta-icon"></em>
-            <span class="post__meta-text">3-minute read</span>
+            <span class="post__meta-text">5-minute read</span>
           </li>
         </ul>
 
@@ -462,7 +462,7 @@ $$</p>
 <p>by gradient descent with line search. The direction of steepest descent is calculated by the gradient</p>
 <p>$$
 \mathbf{d} = -\nabla F(\mathbf{x}) = \begin{pmatrix}
--x_{1} \\<br>
+-x_{1} \\
 -9x_{2}
 \end{pmatrix}.
 $$</p>
@@ -479,20 +479,18 @@ $$</p>
 \mathbf{x}_ {n+1}=
 \mathbf{x}_ {n}+\frac{\left(x_ {1}\right)_ {n}^{2}+81\left(x_ {2}\right)_ {n}^{2}}{\left(x_ {1}\right)_ {n}^{2}+729\left(x_ {2}\right)_ {n}^{2}}
 \begin{pmatrix}
--\left(x_ {1}\right)_ {n} \\<br>
+-\left(x_ {1}\right)_ {n} \\
 -9\left(x_ {2}\right)_ {n}
 \end{pmatrix}.
 $$</p>
 <p>Our initial guess is at $x_{0}=\begin{pmatrix}9 &amp; 1\end{pmatrix}^{\mathrm{T}}$.</p>
 <p>The plot and table show the convergence rate using this update formula for 55 iterations. Every orange circle is the Cauchy point along that search path.</p>
-<figure class="small">
-    <img src="/images/gdm1/gdm1.png"
-         alt="image"/> 
+<figure class="small"><img src="/images/gdm1/gdm1.png"
+         alt="image"/>
 </figure>
 
-<figure class="small">
-    <img src="/images/gdm1/table1.png"
-         alt="image"/> 
+<figure class="small"><img src="/images/gdm1/table1.png"
+         alt="image"/>
 </figure>
 
 <p>This is very inefficient as we used 56 iterations to optimise this simple parabolic function and only achieved a tolerance of $\epsilon\sim 10^{-5}$. The &ldquo;zig-zag&rdquo; phenomenon is very common in gradient descent algorithms due to the anisotropic gradient in each directions. With that said, optimising</p>
@@ -505,7 +503,7 @@ $$</p>
 <p>Now the natural question to ask is, can we turn \eqref{eqn:eg1} into \eqref{eqn:eg2}? We can do so by change of variables</p>
 <p>$$
 \begin{aligned}
-&amp;x_{1}^{\prime}=x_{1} \\<br>
+&amp;x_{1}^{\prime}=x_{1} \\
 &amp;x_{2}^{\prime}=3 x_{2}.
 \end{aligned}
 $$</p>
@@ -514,19 +512,56 @@ $$</p>
 \tilde{f}\left(x^{\prime}\right)=\frac{1}{2} x_ {1}^{\prime 2}+\frac{9}{2}\left(\frac{1}{3} x_ {2}^{\prime}\right)^{2}=\frac{1}{2} x_ {1}^{\prime 2}+\frac{1}{2} x_ {2}^{\prime 2}
 $$</p>
 <p>It is without doubt that in a single iteration, the line search method can find the global minimum, which is $(0,0)$.</p>
-<figure class="small">
-    <img src="/images/gdm1/gdm2.png"
-         alt="image"/> 
+<figure class="small"><img src="/images/gdm1/gdm2.png"
+         alt="image"/>
 </figure>
 
 <p>In summary, preconditioning the function makes the original elliptical (anisotropic) contour lines circular (isotropic).</p>
 <p>Formally, the preconditioned steepest descent is</p>
 <p>$$
-\mathbf{x}_ {n+1}=\mathbf{x}_ {n}+\mathbf{H}_{n}^{-1}\alpha_{n} \mathbf{d}_{n}
+\mathbf{x}_ {n+1}=\mathbf{x}_ {n}+\mathbf{H}_ {n}^{-1}\alpha_{n} \mathbf{d}_ {n}
 $$</p>
 <p>where $\mathbf{H}_{n}^{-1}$ is called the <strong>preconditioner</strong>, which must be <strong>symmetric positive definite</strong>. We will mention later that, in Newton&rsquo;s Method, $\mathbf{H}$ is the Hessian of $F$.</p>
 <h3 id="inexact-line-search">Inexact Line Search</h3>
-<p>Previously, we have performed an exact line search with preconditioning, with analytic gradient and preconditioner. However, these two pieces of information are not always available. In addition, exact line search induces another optimisation over the search path, and may be too computationally expensive to use in practical cases. Often, we use <strong>inexact line search</strong> instead.</p>
+<p>Previously, we have performed an exact line search with preconditioning, with analytic gradient and preconditioner. However, these two pieces of information are not always available. In addition, exact line search induces another optimisation over the search path, and may be too computationally expensive to use in practical cases. Often, we use <strong>inexact line search</strong> instead. Inexact line search tries to &ldquo;loosely&rdquo; minimise the function value. In other words, as long as $f(x_{n+1})&lt;f(x_n)$, such step is a &ldquo;good choice&rdquo;.</p>
+<p>It seems to be a good idea, however, does not necessarily converge. Suppose we want to optimise $y=x^2$ which is simple enough. Let&rsquo;s try two step sizes which <strong>strictly</strong> minimise the function value at the next iteration.</p>
+<ul>
+<li>The first choice is $\alpha_k=2+3(2^{-k-1})$. It can be analytically proven that $x_ {n}=(-1)^{n}\left(1+2^{-n}\right)$ and $f(x_ {n+1})&lt;f(x_ {n})$.</li>
+<li>The second choice is $\alpha_k=2^{-k-1}$. It can also be analytically proven that $x_ {n}=1+2^{-n}$ and $f(x_ {n+1})&lt;f(x_ {n})$.</li>
+</ul>
+<figure class="small"><img src="/images/gdm1/gdm3.png"
+         alt="image"/>
+</figure>
+
+<p>It is clear that for the first case, the function value is monotonically decreasing, however, for the first case, $\lim_{n\to\infty}x_n\nexists$ (does not converge), and for the second case, $\lim_{n\to\infty}x_n=1\neq0$ (converges to a wrong value).</p>
+<h2 id="wolfe-conditions">Wolfe Conditions</h2>
+<p>We want to systematically determine a proper step size instead of randomly guessing.</p>
+<h3 id="first-wolfe-conditions">First Wolfe Conditions</h3>
+<p>We have two ideas of choosing a step size as large as possible.</p>
+<ul>
+<li>If we use a large step, we want a large reduction in function value. \eqref{eqn:wolfe1-1} says, the reduction in function value should be at least proportional to the step size, by the proportionality constant $\gamma$.</li>
+</ul>
+<p>$$
+f\left(\mathbf{x}_ {n}+\alpha_ {n} d_ {n}\right) \leq f\left(\mathbf{x}_ {n}\right)-\alpha_ {n} \gamma
+\label{eqn:wolfe1-1}
+$$</p>
+<ul>
+<li>If we have a large gradient, we want a large reduction in function value. \eqref{eqn:wolfe1-2} says, the proportionality constant $\gamma$ should be proportional to the gradient.</li>
+</ul>
+<p>$$
+\gamma=-\beta_{1} \nabla f\left(\mathbf{x}_ {n}\right)^{T} \mathbf{d}_ {n},\quad 0&lt;\beta_1&lt;1
+\label{eqn:wolfe1-2}
+$$</p>
+<p>Combine \eqref{eqn:wolfe1-1} and \eqref{eqn:wolfe1-2}, we have</p>
+<p>$$
+f\left(\mathbf{x}_ {n}+\alpha_ {n} \mathbf{d}_ {n}\right) \leq f\left(\mathbf{x}_ {n}\right)+\alpha_ {n} \beta_{1} \nabla f\left(\mathbf{x}_ {n}\right)^{T} \mathbf{d}_ {n},\quad 0&lt;\beta_1&lt;1
+$$</p>
+<p>It is important to note that both ends of the interval are excluded. Let&rsquo;s take a look the extreme cases.</p>
+<ul>
+<li>When $\beta_1=0$, we have $f\left(\mathbf{x}_ {n}+\alpha_ {n} \mathbf{d}_ {n}\right) \leq f\left(\mathbf{x}_ {n}\right)$. This is nothing different from the cases we studied previously, and this condition is not sufficient.</li>
+<li>When $\beta_1=1$, we have $f\left(\mathbf{x}_ {n}+\alpha_ {n} \mathbf{d}_ {n}\right) \leq f\left(\mathbf{x}_ {n}\right)+\alpha_ {n} \nabla f\left(\mathbf{x}_ {n}\right)^{T} \mathbf{d}_ {n}$. Note that the RHS is now the tangent line of the function. If the function is convex, it is impossible to find an $\alpha_k$ that satisfies this condition.</li>
+<li>The smaller the $\beta_1$ (less strict), the larger the step size is allowed.</li>
+</ul>
 
 
 
@@ -584,8 +619,8 @@ $$</p>
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.7d3bf3472b73d9ba107b3de37d0df8fa736593a3c6638c95eaed42006bfc0193.js"
-    integrity="sha256-fTvzRytz2boQez3jfQ34&#43;nNlk6PGY4yV6u1CAGv8AZM="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
