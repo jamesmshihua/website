@@ -1,0 +1,34 @@
+using Plots
+using Plots.PlotMeasures
+using LaTeXStrings
+
+## define functions
+num = 1001
+f(x::Float64) = x^2
+df(x::Float64) = 2*x
+
+## initialisation
+alphas = LinRange(0,4,num)
+ys = f.(-1.5 .+ alphas)
+
+x0 = LinRange(0,4,num)
+y0 = similar(x0)
+fill!(y0, f(-1.5))
+y1 = f(-1.5) .+ df(-1.5) * alphas
+
+# plot(dpi=300, layout=(1,2))
+pyplot(size=(800,400))
+p1 = plot(alphas, ys, xlabel="α", ylabel="f(xₖ+αdₖ)", label="x²", subplot=1, right_margin=5mm, title="First Wolfe condition")
+plot!(x0, y0, label="β₁=0", subplot=1)
+plot!(x0, y1, label="β₁=1", subplot=1)
+ylims!(-5, 10, subplot=1)
+
+p2 = plot(alphas, ys, xlabel="α", ylabel="f(xₖ+αdₖ)", label="x²", right_margin=50mm, grid=false, legend=:topright, title="Second Wolfe condition")
+subplot = twinx()
+plot!(subplot, alphas, 1 .- alphas/1.5, ylabel=L"\frac{\nabla f(x_k+\alpha d_k)d_k}{\nabla f(x_k)d_k}", color=:orange, label="β₂", legend=:topleft, grid=true)
+plot!(subplot, LinRange(0,4,101), zeros(101), linestyle=:dash, color=:grey, label=false)
+plot!(subplot, ones(101) * 1.5, LinRange(-2,6,101), linestyle=:dash, color=:grey, label=false)
+
+plot(p1, p2, layout=(1,2), dpi=300)
+png("gdm4")
+
