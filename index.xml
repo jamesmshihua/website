@@ -8,11 +8,33 @@
     <language>en</language>
     <lastBuildDate>Mon, 28 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>2D RANS Simulation of Floating VAWT in Roll Motion</title>
+      <link>https://jamesmshihua.com/post/vawt-roll-2d/</link>
+      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesmshihua.com/post/vawt-roll-2d/</guid>
+      
+        <description>Background A simple 2D Reynolds-Averaged Navier-Stokes (RANS) simulation of a floating vertical axis wind turbine (VAWT) in roll motion, sliced by a top view.</description>
+      
+    </item>
+    
+    <item>
       <title>Gradient Descent</title>
       <link>https://jamesmshihua.com/post/gradient-descent/</link>
       <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jamesmshihua.com/post/gradient-descent/</guid>
+      
+        <description>Introduction of Gradient Descent Gradient Descent (GD) is an optimisation algorithm that does not need my introduction.</description>
+      
+    </item>
+    
+    <item>
+      <title>Gradient Descent: Line Search</title>
+      <link>https://jamesmshihua.com/post/gd-linesearch/</link>
+      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesmshihua.com/post/gd-linesearch/</guid>
       
         <description>Introduction of Gradient Descent Gradient Descent (GD) is an optimisation algorithm that does not need my introduction.</description>
       

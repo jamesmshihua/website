@@ -194,7 +194,7 @@
 
     ,
         "url" : "https:\/\/jamesmshihua.com\/post\/gradient-descent\/",
-        "wordCount" : "625",
+        "wordCount" : "705",
         "genre" : [ ],
         "keywords" : [ 
       
@@ -428,7 +428,7 @@
           </li>
           <li class="post__meta-item">
             <em class="fas fa-stopwatch post__meta-icon"></em>
-            <span class="post__meta-text">3-minute read</span>
+            <span class="post__meta-text">4-minute read</span>
           </li>
         </ul>
 
@@ -522,11 +522,26 @@ $$</p>
 <p>In summary, preconditioning the function makes the original elliptical (anisotropic) contour lines circular (isotropic).</p>
 <p>Formally, the preconditioned steepest descent is</p>
 <p>$$
-\mathbf{x}_ {n+1}=\mathbf{x}_ {n}+\mathbf{H}_{n}^{-1}\alpha_{n} \mathbf{d}_{n}
+\mathbf{x}_ {n+1}=\mathbf{x}_ {n}+\mathbf{H}_ {n}^{-1}\alpha_{n} \mathbf{d}_ {n}
 $$</p>
 <p>where $\mathbf{H}_{n}^{-1}$ is called the <strong>preconditioner</strong>, which must be <strong>symmetric positive definite</strong>. We will mention later that, in Newton&rsquo;s Method, $\mathbf{H}$ is the Hessian of $F$.</p>
 <h3 id="inexact-line-search">Inexact Line Search</h3>
-<p>Previously, we have performed an exact line search with preconditioning, with analytic gradient and preconditioner. However, these two pieces of information are not always available. In addition, exact line search induces another optimisation over the search path, and may be too computationally expensive to use in practical cases. Often, we use <strong>inexact line search</strong> instead.</p>
+<p>Previously, we have performed an exact line search with preconditioning, with analytic gradient and preconditioner. However, these two pieces of information are not always available. In addition, exact line search induces another optimisation over the search path, and may be too computationally expensive to use in practical cases. Often, we use <strong>inexact line search</strong> instead. Inexact line search tries to &ldquo;loosely&rdquo; minimise the function value. In other words, as long as $f(x_{n+1})&lt;f(x_n)$, such step is a &ldquo;good choice&rdquo;.</p>
+<p>It seems to be a good idea, however, does not necessarily converge. Suppose we want to optimise $y=x^2$ which is simple enough. Let&rsquo;s try two step sizes which <strong>strictly</strong> minimise the function value at the next iteration.</p>
+<ul>
+<li>The first choice is $\alpha_k=2+3(2^{-k-1})$. It can be analytically proven that</li>
+</ul>
+<p>$$
+x_ {n}=(-1)^{n}\left(1+2^{-n}\right)\quad\text{and}\quad f(x_ {n+1})&lt;f(x_ {n})
+$$</p>
+<ul>
+<li></li>
+</ul>
+<figure class="small">
+    <img src="/images/gdm1/gdm3.png"
+         alt="image"/> 
+</figure>
+
 
 
 
@@ -534,6 +549,9 @@ $$</p>
 <ul>
   
     <li><a href="/post/gradient-descent/">Gradient Descent</a></li>
+
+  
+    <li><a href="/post/gd-linesearch/">Gradient Descent: Line Search</a></li>
 
   
 </ul>

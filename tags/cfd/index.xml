@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cfd on My blog</title>
+    <link>https://jamesmshihua.com/tags/cfd/</link>
+    <description>Recent content in cfd on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/tags/cfd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2D RANS Simulation of Floating VAWT in Roll Motion</title>
+      <link>https://jamesmshihua.com/post/vawt-roll-2d/</link>
+      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesmshihua.com/post/vawt-roll-2d/</guid>
+      
+        <description>Background A simple 2D Reynolds-Averaged Navier-Stokes (RANS) simulation of a floating vertical axis wind turbine (VAWT) in roll motion, sliced by a top view.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

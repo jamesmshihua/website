@@ -18,5 +18,16 @@
       
     </item>
     
+    <item>
+      <title>Gradient Descent: Line Search</title>
+      <link>https://jamesmshihua.com/post/gd-linesearch/</link>
+      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesmshihua.com/post/gd-linesearch/</guid>
+      
+        <description>Introduction of Gradient Descent Gradient Descent (GD) is an optimisation algorithm that does not need my introduction.</description>
+      
+    </item>
+    
   </channel>
 </rss>

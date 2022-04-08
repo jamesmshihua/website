@@ -3,7 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jamesmshihua.com/post/vawt-roll-2d/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jamesmshihua.com/tags/cfd/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jamesmshihua.com/post/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jamesmshihua.com/tags/</loc>
+    <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jamesmshihua.com/post/gradient-descent/</loc>
+    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jamesmshihua.com/post/gd-linesearch/</loc>
     <lastmod>2022-03-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -23,17 +48,7 @@
   </url>
   
   <url>
-    <loc>https://jamesmshihua.com/post/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jamesmshihua.com/series/</loc>
-    <lastmod>2022-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jamesmshihua.com/tags/</loc>
     <lastmod>2022-03-21T00:00:00+00:00</lastmod>
   </url>
   
