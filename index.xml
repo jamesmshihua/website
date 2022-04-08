@@ -14,16 +14,16 @@
       
       <guid>https://jamesmshihua.com/post/vawt-roll-2d/</guid>
       
-        <description>Grid Generation A 2D unstructured grid is generated with Star-CCM+ automated mesher.</description>
+        <description>Background A simple 2D Reynolds-Averaged Navier-Stokes (RANS) simulation of a floating vertical axis wind turbine (VAWT) in roll motion, sliced by a top view.</description>
       
     </item>
     
     <item>
-      <title>Gradient Descent</title>
-      <link>https://jamesmshihua.com/post/gradient-descent/</link>
+      <title>Gradient Descent: Line Search</title>
+      <link>https://jamesmshihua.com/post/gd-linesearch/</link>
       <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jamesmshihua.com/post/gradient-descent/</guid>
+      <guid>https://jamesmshihua.com/post/gd-linesearch/</guid>
       
         <description>Introduction of Gradient Descent Gradient Descent (GD) is an optimisation algorithm that does not need my introduction.</description>
       

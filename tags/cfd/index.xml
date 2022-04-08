@@ -14,7 +14,7 @@
       
       <guid>https://jamesmshihua.com/post/vawt-roll-2d/</guid>
       
-        <description>Grid Generation A 2D unstructured grid is generated with Star-CCM+ automated mesher.</description>
+        <description>Background A simple 2D Reynolds-Averaged Navier-Stokes (RANS) simulation of a floating vertical axis wind turbine (VAWT) in roll motion, sliced by a top view.</description>
       
     </item>
     

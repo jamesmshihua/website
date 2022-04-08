@@ -22,7 +22,7 @@
   <meta
     name="description"
     content="
-      A simple 2D RANS simulation of floating VAWT in roll Motion.
+      A simple 2D RANS simulation of floating VAWT in roll motion.
 
 
     "
@@ -113,13 +113,13 @@
 <meta name="twitter:image" content="https://jamesmshihua.com/images/site-feature-image.png"/>
 
 <meta name="twitter:title" content="2D RANS Simulation of Floating VAWT in Roll Motion"/>
-<meta name="twitter:description" content="A simple 2D RANS simulation of floating VAWT in roll Motion."/>
+<meta name="twitter:description" content="A simple 2D RANS simulation of floating VAWT in roll motion."/>
 
 
 
   
   <meta property="og:title" content="2D RANS Simulation of Floating VAWT in Roll Motion" />
-<meta property="og:description" content="A simple 2D RANS simulation of floating VAWT in roll Motion." />
+<meta property="og:description" content="A simple 2D RANS simulation of floating VAWT in roll motion." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jamesmshihua.com/post/vawt-roll-2d/" /><meta property="og:image" content="https://jamesmshihua.com/images/site-feature-image.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-31T00:00:00+00:00" />
@@ -141,7 +141,7 @@
         "headline": "2D RANS Simulation of Floating VAWT in Roll Motion",
         "alternativeHeadline": "",
         "description": "
-      A simple 2D RANS simulation of floating VAWT in roll Motion.
+      A simple 2D RANS simulation of floating VAWT in roll motion.
 
 
     ",
@@ -193,7 +193,7 @@
 
     ,
         "url" : "https:\/\/jamesmshihua.com\/post\/vawt-roll-2d\/",
-        "wordCount" : "24",
+        "wordCount" : "128",
         "genre" : [ ],
         "keywords" : [ 
       
@@ -424,25 +424,51 @@
           </li>
         </ul>
 
-      <h2 id="grid-generation">Grid Generation</h2>
+      <h2 id="background">Background</h2>
+<p>A simple 2D Reynolds-Averaged Navier-Stokes (RANS) simulation of a floating vertical axis wind turbine (VAWT) in roll motion, sliced by a top view. Under this view, the problem is reduced to a set of turbine airfoils rotating around their axis. With a horizontal freestream velocity, the roll motion can be modelled as a vertical vibration with a certain period.</p>
+<h2 id="physics-setup">Physics Setup</h2>
+<ul>
+<li>Airfoil shape: NACA0015</li>
+<li>Angular velocity: $6\pi$ rad/s</li>
+<li>Freestream velocity: $7$ m/s</li>
+<li>Chord length: $0.225$ m</li>
+<li>Radius: $0.85$ m</li>
+<li>Angle of incidence: $6^\circ$</li>
+</ul>
+<h2 id="grid-generation">Grid Generation</h2>
 <p>A 2D unstructured grid is generated with Star-CCM+ automated mesher.</p>
 <ul>
-<li>Background mesh
+<li>Simulation Domain
 <ul>
-<li>Cell count:</li>
-<li>Geometry: tetrahedral</li>
+<li>$L\times W=40\ \mathrm{m}\times20\ \mathrm{m}$</li>
 </ul>
 </li>
-<li>Overset mesh
+<li>Background Mesh
 <ul>
-<li>Cell count:</li>
-<li>Geometry: polyhedral</li>
+<li>Cell Count: 77377</li>
+<li>Cell Type: Quadrilateral</li>
+</ul>
+</li>
+<li>Overset Mesh
+<ul>
+<li>Cell Count: 14316</li>
+<li>Cell Type + Prism Layers</li>
+<li>First layer thickness: that of $y^+=30$</li>
 </ul>
 </li>
 </ul>
-<figure class="large"><img src="/images/vawt-roll-2d/mesh.png"
+<figure class="middle"><img src="/images/vawt-roll-2d/mesh.png"
          alt="image"/>
 </figure>
+
+<h2 id="simulation-result">Simulation Result</h2>
+
+ 
+
+<video width=100% controls>
+    <source src="/images/vawt-roll-2d/test.mp4" type="video/mp4">
+</video>
+
 
 </div>
     <div class="post__footer">
