@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My blog</title>
-    <link>https://jamesmshihua.com/</link>
-    <description>Recent content on My blog</description>
+    <title>杂文 on My blog</title>
+    <link>https://jamesmshihua.com/tags/%E6%9D%82%E6%96%87/</link>
+    <description>Recent content in 杂文 on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 03 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/tags/%E6%9D%82%E6%96%87/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>立夏夜之梦</title>
       <link>https://jamesmshihua.com/post/%E7%AB%8B%E5%A4%8F%E5%A4%9C%E4%B9%8B%E6%A2%A6/</link>
@@ -22,83 +22,6 @@
 许多人说，“梦是反的”——我不这么认为。梦与现实生活发生的事情如果相反，只是因为梦体现的是现实的另一个部分。我尝试用一个例子来证明。如果你梦到考试不及格，但事实上你考的还不错，你会支持“梦是反的”这个观点。事实上，你如果能做这个梦，说明现实中(不论是主观还是潜意识里)担心会考不及格，因此很有可能你还是努力学习了，以避免你所担心的事情发生。那么你得到的结果应该是好的。所以梦仍然是对生活的某种思考，而不是预言正反的迷信。
 写了这么多，我并没有想证明或证伪什么，只是提出一些对梦的解读。引用第三个例子中提到的我所敬重的朋友的一句话：“自己是最好的解梦人”。是这样的，我给自己解梦，还是收获了不少有价值的判断的。
 P.S.：我的梦太多了，一个晚上四五个，大多数是乱七八糟的，让我睡眠很差。</description>
-      
-    </item>
-    
-    <item>
-      <title>Gradient Descent: Momentum, Acceleration, and Adams</title>
-      <link>https://jamesmshihua.com/post/gd-adams/</link>
-      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jamesmshihua.com/post/gd-adams/</guid>
-      
-        <description>Momentum What is this?</description>
-      
-    </item>
-    
-    <item>
-      <title>2D RANS Simulation of Floating VAWT in Roll Motion</title>
-      <link>https://jamesmshihua.com/post/vawt-roll-2d/</link>
-      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jamesmshihua.com/post/vawt-roll-2d/</guid>
-      
-        <description>Background A simple 2D Reynolds-Averaged Navier-Stokes (RANS) simulation of a floating vertical axis wind turbine (VAWT) in roll motion, sliced by a top view.</description>
-      
-    </item>
-    
-    <item>
-      <title>Gradient Descent: Line Search</title>
-      <link>https://jamesmshihua.com/post/gd-linesearch/</link>
-      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jamesmshihua.com/post/gd-linesearch/</guid>
-      
-        <description>Introduction of Gradient Descent Gradient Descent (GD) is an optimisation algorithm that does not need my introduction.</description>
-      
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://jamesmshihua.com/about/</link>
-      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jamesmshihua.com/about/</guid>
-      
-        <description>I&amp;rsquo;m a PhD student in the Hong Kong University of Science and Technology, a Hong Kong PhD Fellowship Scheme awardee.</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://jamesmshihua.com/archives/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jamesmshihua.com/archives/</guid>
-      
-        <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Contact</title>
-      <link>https://jamesmshihua.com/contact/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jamesmshihua.com/contact/</guid>
-      
-        <description></description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://jamesmshihua.com/imprint/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jamesmshihua.com/imprint/</guid>
-      
-        <description>Disclaimer There is absolutely no guarantee for the correctness of the information presented in this blog, some of which is purely based on my personal experience.</description>
       
     </item>
     

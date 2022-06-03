@@ -6,15 +6,15 @@
     <description>Recent content in Gradient-Based Optimisation on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 21 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/series/gradient-based-optimisation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/series/gradient-based-optimisation/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Gradient Descent: Line Search</title>
-      <link>https://jamesmshihua.com/post/gd-linesearch/</link>
-      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      <title>Gradient Descent: Momentum, Acceleration, and Adams</title>
+      <link>https://jamesmshihua.com/post/gd-adams/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jamesmshihua.com/post/gd-linesearch/</guid>
+      <guid>https://jamesmshihua.com/post/gd-adams/</guid>
       
-        <description>Introduction of Gradient Descent Gradient Descent (GD) is an optimisation algorithm that does not need my introduction.</description>
+        <description>Momentum What is this?</description>
       
     </item>
     

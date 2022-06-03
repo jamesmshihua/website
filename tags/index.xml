@@ -6,13 +6,13 @@
     <description>Recent content in Tags on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>cfd</title>
-      <link>https://jamesmshihua.com/tags/cfd/</link>
-      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
+      <title>杂文</title>
+      <link>https://jamesmshihua.com/tags/%E6%9D%82%E6%96%87/</link>
+      <pubDate>Fri, 03 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jamesmshihua.com/tags/cfd/</guid>
+      <guid>https://jamesmshihua.com/tags/%E6%9D%82%E6%96%87/</guid>
       
         <description></description>
       
@@ -21,7 +21,7 @@
     <item>
       <title>mathematics</title>
       <link>https://jamesmshihua.com/tags/mathematics/</link>
-      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jamesmshihua.com/tags/mathematics/</guid>
       
@@ -32,9 +32,20 @@
     <item>
       <title>optimisation</title>
       <link>https://jamesmshihua.com/tags/optimisation/</link>
-      <pubDate>Mon, 21 Mar 2022 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jamesmshihua.com/tags/optimisation/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>cfd</title>
+      <link>https://jamesmshihua.com/tags/cfd/</link>
+      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesmshihua.com/tags/cfd/</guid>
       
         <description></description>
       
