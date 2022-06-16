@@ -194,7 +194,7 @@
 
     ,
         "url" : "https:\/\/jamesmshihua.com\/post\/gd-quasi-newton\/",
-        "wordCount" : "766",
+        "wordCount" : "1034",
         "genre" : [ ],
         "keywords" : [ 
       
@@ -428,12 +428,12 @@
           </li>
           <li class="post__meta-item">
             <em class="fas fa-stopwatch post__meta-icon"></em>
-            <span class="post__meta-text">4-minute read</span>
+            <span class="post__meta-text">5-minute read</span>
           </li>
         </ul>
 
       <h2 id="newtons-method">Newton&rsquo;s Method</h2>
-<p>Different from gradient-descent (GD) method which tries to directly converge the design variable to a minimiser, <strong>Newton&rsquo;s method</strong> uses an important characteristic of an extreme value &ndash; gradient of the function ($\nabla \mathbf{f}$) equals zero.</p>
+<p>Different from gradient-descent (GD) method which tries to directly converge the design variable to a minimiser, <strong>Newton&rsquo;s method</strong> uses an important characteristic of an extreme value &ndash; gradient of the function ($\nabla \mathbf{f}$) equals zero. While GD has a first-order convergence, Newton&rsquo;s method has second-order convergence, which means it suffers less severe zig-zag problems.</p>
 <p>Recall our primary school math, that we can find the root of an equation $f=0$ by
 $$
 x_{k+1} = x_k - \frac{f}{f^\prime}.
@@ -527,7 +527,58 @@ $$
 \Delta \mathbf{H} _{k}=\left(\mathbf{I}-\mathbf{s} _{k} \rho _{k} \mathbf{y} _{k}^{\top}\right) \mathbf{H} _{k}\left(\mathbf{I}-\rho _{k} \mathbf{y} _{k} \mathbf{s} _{k}^{\top}\right)+\rho _{k} \mathbf{s} _{k} \mathbf{s} _{k}^{\top}
 $$
 where $\rho _{k}=\dfrac{1}{\mathbf{y} _{k}^{\top} \mathbf{s} _{k}}$ is a scalar.</p>
-
+<h2 id="a-sample-study">A Sample Study</h2>
+<p>The above mentioned methods are implemented in a Julia package <code>Optim.jl</code>. Here we use this package to optimise the Rosenbrock function
+$$
+f(x,y) = (1 - x)^2 + 100.0 (y - x^2)^2.
+$$</p>
+<p>We use Gradient Descent method (introduced in the previous blog), both with and without line search, and BFGS optimiser. The results is shown in the following figure:
+<figure class="middle"><img src="/images/gdm2/BFGS.png"
+         alt="image"/>
+</figure>
+</p>
+<p>It can be clearly seen that BFGS performs the best, converging to the global minimum $(1,1)$ with 26 iterations. GD with line search requires 615 iterations, a significant larger number, also converging to the correct value. However, the vanilla GD method uses 1000 iterations and still cannot converge to the minimum.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="k">using</span> <span class="n">Optim</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">Plots</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">LineSearches</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="kt">LinRange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="kt">LinRange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#34;Rosenbrock&#34;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&#34;y&#34;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:topleft</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">contour!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">f</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]),</span> <span class="n">levels</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">start</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">res1</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">BFGS</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="n">store_trace</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">extended_trace</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">trace1</span> <span class="o">=</span> <span class="n">mapreduce</span><span class="p">(</span><span class="n">permutedims</span><span class="p">,</span> <span class="n">vcat</span><span class="p">,</span> <span class="n">Optim</span><span class="o">.</span><span class="n">x_trace</span><span class="p">(</span><span class="n">res1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">plot!</span><span class="p">(</span><span class="n">trace1</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">trace1</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="ss">:circle</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#34;BFGS (</span><span class="si">$</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">trace1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="s"> iterations)&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markeralpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">markerstrokewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">algo_gd_hz</span> <span class="o">=</span> <span class="n">GradientDescent</span><span class="p">(;</span><span class="n">alphaguess</span> <span class="o">=</span> <span class="n">LineSearches</span><span class="o">.</span><span class="n">InitialStatic</span><span class="p">(),</span> <span class="n">linesearch</span> <span class="o">=</span> <span class="n">LineSearches</span><span class="o">.</span><span class="n">HagerZhang</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">res2</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">algo_gd_hz</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="n">store_trace</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">extended_trace</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">trace2</span> <span class="o">=</span> <span class="n">mapreduce</span><span class="p">(</span><span class="n">permutedims</span><span class="p">,</span> <span class="n">vcat</span><span class="p">,</span> <span class="n">Optim</span><span class="o">.</span><span class="n">x_trace</span><span class="p">(</span><span class="n">res2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">plot!</span><span class="p">(</span><span class="n">trace2</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">trace2</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="ss">:circle</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#34;GD w/ Line Search (</span><span class="si">$</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">trace2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="s"> iterations)&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markeralpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">markerstrokewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">res3</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">GradientDescent</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">	<span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="n">store_trace</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="n">extended_trace</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">trace3</span> <span class="o">=</span> <span class="n">mapreduce</span><span class="p">(</span><span class="n">permutedims</span><span class="p">,</span> <span class="n">vcat</span><span class="p">,</span> <span class="n">Optim</span><span class="o">.</span><span class="n">x_trace</span><span class="p">(</span><span class="n">res3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">plot!</span><span class="p">(</span><span class="n">trace3</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">trace3</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="ss">:circle</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#34;GD (</span><span class="si">$</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">trace3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="s"> iterations)&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">markeralpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">markerstrokewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span></code></pre></div>
 
 
 <h3>Posts in this Series</h3>
