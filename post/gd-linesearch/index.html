@@ -124,7 +124,7 @@
 <meta property="og:url" content="https://jamesmshihua.com/post/gd-linesearch/" /><meta property="og:image" content="https://jamesmshihua.com/images/site-feature-image.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-03-21T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-03-21T00:00:00+00:00" /><meta property="og:site_name" content="My blog" />
-<meta property="og:see_also" content="https://jamesmshihua.com/post/gd-adams/" />
+<meta property="og:see_also" content="https://jamesmshihua.com/post/gd-quasi-newton/" />
 
 
 
@@ -435,7 +435,7 @@
       <h2 id="introduction-of-gradient-descent">Introduction of Gradient Descent</h2>
 <p>Gradient Descent (GD) is an optimisation algorithm that does not need my introduction. For the sake of notation, the update formula of GD is</p>
 <p>$$
-\mathbf{x} _{n+1}=\mathbf{x} _{n}-\gamma _{n} \nabla F\left(\mathbf{x} _{n}\right),\quad n \geq 0,
+\mathbf{x} _{k+1}=\mathbf{x} _{k}-\gamma _{k} \nabla F\left(\mathbf{x} _{k}\right),\quad n \geq 0,
 \label{eqn:vanilla-gd}
 $$</p>
 <p>where $\mathbf{x}$ is the vector-valued <strong>design variable</strong> and $F\left(\mathbf{x}\right)$ is a multi-variable function representing your <strong>optimisation goal</strong>.</p>
@@ -444,11 +444,11 @@ $$</p>
 <h3 id="exact-line-search">Exact Line Search</h3>
 <p>At a first glance, there is only one parameter you can tune in \eqref{eqn:vanilla-gd}, that is $\gamma$. By selecting $\gamma$, the magnitude of the gradient does not matter any more. An <strong>exact line search</strong> tries to minimise</p>
 <p>$$
-h(\alpha)=f\left(\mathbf{x}_ {n}+\alpha \mathbf{p}_ {n}\right),\quad\alpha \in \mathbb{R}_ {+},
+h(\alpha)=f\left(\mathbf{x}_ {k}+\alpha \mathbf{p}_ {k}\right),\quad\alpha \in \mathbb{R}_ {+},
 $$</p>
 <p>where $\mathbf{p}$ is the descent (search) direction and $\alpha$ is the step size we are trying to find. Then, update formula becomes</p>
 <p>$$
-\mathbf{x} _{n+1}=\mathbf{x} _{n}+\alpha\mathbf{p} _{n}.
+\mathbf{x} _{k+1}=\mathbf{x} _{k}+\alpha\mathbf{p} _{k}.
 $$</p>
 <p>However, it is often that the search direction is calculated from the gradient, so</p>
 <p>$$
@@ -476,11 +476,11 @@ $$</p>
 $$</p>
 <p>This &ldquo;lowest&rdquo; point along a search direction is called the <strong>Cauchy point</strong>. The update formula should be</p>
 <p>$$
-\mathbf{x}_ {n+1}=
-\mathbf{x}_ {n}+\frac{\left(x_ {1}\right)_ {n}^{2}+81\left(x_ {2}\right)_ {n}^{2}}{\left(x_ {1}\right)_ {n}^{2}+729\left(x_ {2}\right)_ {n}^{2}}
+\mathbf{x}_ {k+1}=
+\mathbf{x}_ {k}+\frac{\left(x_ {1}\right)_ {k}^{2}+81\left(x_ {2}\right)_ {k}^{2}}{\left(x_ {1}\right)_ {k}^{2}+729\left(x_ {2}\right)_ {k}^{2}}
 \begin{pmatrix}
--\left(x_ {1}\right)_ {n} \\
--9\left(x_ {2}\right)_ {n}
+-\left(x_ {1}\right)_ {k} \\
+-9\left(x_ {2}\right)_ {k}
 \end{pmatrix}.
 $$</p>
 <p>Our initial guess is at $x_{0}=\begin{pmatrix}9 &amp; 1\end{pmatrix}^{\mathrm{T}}$.</p>
@@ -519,15 +519,15 @@ $$</p>
 <p>In summary, preconditioning the function makes the original elliptical (anisotropic) contour lines circular (isotropic).</p>
 <p>Formally, the preconditioned steepest descent is</p>
 <p>$$
-\mathbf{x}_ {n+1}=\mathbf{x}_ {n}+\mathbf{H}_ {n}^{-1}\alpha_{n} \mathbf{d}_ {n}
+\mathbf{x}_ {k+1}=\mathbf{x}_ {k}+\mathbf{H}_ {k}^{-1}\alpha_{k} \mathbf{d}_ {k}
 $$</p>
-<p>where $\mathbf{H}_{n}^{-1}$ is called the <strong>preconditioner</strong>, which must be <strong>symmetric positive definite</strong>. We will mention later that, in Newton&rsquo;s Method, $\mathbf{H}$ is the Hessian of $F$.</p>
+<p>where $\mathbf{H}_{k}^{-1}$ is called the <strong>preconditioner</strong>, which must be <strong>symmetric positive definite</strong>. We will mention later that, in Newton&rsquo;s Method, $\mathbf{H}$ is the Hessian of $F$.</p>
 <h3 id="inexact-line-search">Inexact Line Search</h3>
-<p>Previously, we have performed an exact line search with preconditioning, with analytic gradient and preconditioner. However, these two pieces of information are not always available. In addition, exact line search induces another optimisation over the search path, and may be too computationally expensive to use in practical cases. Often, we use <strong>inexact line search</strong> instead. Inexact line search tries to &ldquo;loosely&rdquo; minimise the function value. In other words, as long as $f(x_{n+1})&lt;f(x_n)$, such step is a &ldquo;good choice&rdquo;.</p>
+<p>Previously, we have performed an exact line search with preconditioning, with analytic gradient and preconditioner. However, these two pieces of information are not always available. In addition, exact line search induces another optimisation over the search path, and may be too computationally expensive to use in practical cases. Often, we use <strong>inexact line search</strong> instead. Inexact line search tries to &ldquo;loosely&rdquo; minimise the function value. In other words, as long as $f(x_{k+1})&lt;f(x_n)$, such step is a &ldquo;good choice&rdquo;.</p>
 <p>It seems to be a good idea, however, does not necessarily converge. Suppose we want to optimise $y=x^2$ which is simple enough. Let&rsquo;s try two step sizes which <strong>strictly</strong> minimise the function value at the next iteration.</p>
 <ul>
-<li>The first choice is $\alpha_k=2+3(2^{-k-1})$. It can be analytically proven that $x_ {n}=(-1)^{n}\left(1+2^{-n}\right)$ and $f(x_ {n+1})&lt;f(x_ {n})$.</li>
-<li>The second choice is $\alpha_k=2^{-k-1}$. It can also be analytically proven that $x_ {n}=1+2^{-n}$ and $f(x_ {n+1})&lt;f(x_ {n})$.</li>
+<li>The first choice is $\alpha_k=2+3(2^{-k-1})$. It can be analytically proven that $x_ {k}=(-1)^{k}\left(1+2^{-n}\right)$ and $f(x_ {k+1})&lt;f(x_ {k})$.</li>
+<li>The second choice is $\alpha_k=2^{-k-1}$. It can also be analytically proven that $x_ {k}=1+2^{-n}$ and $f(x_ {k+1})&lt;f(x_ {k})$.</li>
 </ul>
 <figure class="small"><img src="/images/gdm1/gdm3.png"
          alt="image"/>
@@ -542,24 +542,24 @@ $$</p>
 <li>If we use a large step, we want a large reduction in function value. \eqref{eqn:wolfe1-1} says, the reduction in function value should be at least proportional to the step size, by the proportionality constant $\gamma$.</li>
 </ul>
 <p>$$
-f\left(\mathbf{x}_ {n}+\alpha_ {n} d_ {n}\right) \leq f\left(\mathbf{x}_ {n}\right)-\alpha_ {n} \gamma
+f\left(\mathbf{x}_ {k}+\alpha_ {k} d_ {k}\right) \leq f\left(\mathbf{x}_ {k}\right)-\alpha_ {k} \gamma
 \label{eqn:wolfe1-1}
 $$</p>
 <ul>
 <li>If we have a large gradient, we want a large reduction in function value. \eqref{eqn:wolfe1-2} says, the proportionality constant $\gamma$ should be proportional to the gradient.</li>
 </ul>
 <p>$$
-\gamma=-\beta_{1} \nabla f\left(\mathbf{x}_ {n}\right)^{T} \mathbf{d}_ {n},\quad 0&lt;\beta_1&lt;1
+\gamma=-\beta_{1} \nabla f\left(\mathbf{x}_ {k}\right)^{T} \mathbf{d}_ {k},\quad 0&lt;\beta_1&lt;1
 \label{eqn:wolfe1-2}
 $$</p>
 <p>Combine \eqref{eqn:wolfe1-1} and \eqref{eqn:wolfe1-2}, we have</p>
 <p>$$
-f\left(\mathbf{x}_ {n}+\alpha_ {n} \mathbf{d}_ {n}\right) \leq f\left(\mathbf{x}_ {n}\right)+\alpha_ {n} \beta_{1} \nabla f\left(\mathbf{x}_ {n}\right)^{T} \mathbf{d}_ {n},\quad 0&lt;\beta_1&lt;1
+f\left(\mathbf{x}_ {k}+\alpha_ {k} \mathbf{d}_ {k}\right) \leq f\left(\mathbf{x}_ {k}\right)+\alpha_ {k} \beta_{1} \nabla f\left(\mathbf{x}_ {k}\right)^{T} \mathbf{d}_ {k},\quad 0&lt;\beta_1&lt;1
 $$</p>
 <p>It is important to note that both ends of the interval are <strong>excluded</strong>. Let&rsquo;s take a look the extreme cases.</p>
 <ul>
-<li>When $\beta_1=0$, we have $f\left(\mathbf{x}_ {n}+\alpha_ {n} \mathbf{d}_ {n}\right) \leq f\left(\mathbf{x}_ {n}\right)$. This is nothing different from the cases we studied previously, and this condition is not sufficient.</li>
-<li>When $\beta_1=1$, we have $f\left(\mathbf{x}_ {n}+\alpha_ {n} \mathbf{d}_ {n}\right) \leq f\left(\mathbf{x}_ {n}\right)+\alpha_ {n} \nabla f\left(\mathbf{x}_ {n}\right)^{T} \mathbf{d}_ {n}$. Note that the RHS is now the tangent line of the function. If the function is convex, it is impossible to find an $\alpha_k$ that satisfies this condition.</li>
+<li>When $\beta_1=0$, we have $f\left(\mathbf{x}_ {k}+\alpha_ {k} \mathbf{d}_ {k}\right) \leq f\left(\mathbf{x}_ {k}\right)$. This is nothing different from the cases we studied previously, and this condition is not sufficient.</li>
+<li>When $\beta_1=1$, we have $f\left(\mathbf{x}_ {k}+\alpha_ {k} \mathbf{d}_ {k}\right) \leq f\left(\mathbf{x}_ {k}\right)+\alpha_ {k} \nabla f\left(\mathbf{x}_ {k}\right)^{T} \mathbf{d}_ {k}$. Note that the RHS is now the tangent line of the function. If the function is convex, it is impossible to find an $\alpha_k$ that satisfies this condition.</li>
 <li>The smaller the $\beta_1$ (less strict), the larger the step size is allowed.</li>
 </ul>
 <figure class="small"><img src="/images/gdm1/gdm4.png"
@@ -593,7 +593,7 @@ $$</p>
 <h3>Posts in this Series</h3>
 <ul>
   
-    <li><a href="/post/gd-adams/">Gradient Descent: Momentum, Acceleration, and Adams</a></li>
+    <li><a href="/post/gd-quasi-newton/">Gradient Descent: Newton and Quasi-Newton Method</a></li>
 
   
     <li><a href="/post/gd-linesearch/">Gradient Descent: Line Search</a></li>
