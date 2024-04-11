@@ -6,7 +6,18 @@
     <description>Recent content in mathematics on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 08 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/tags/mathematics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jamesmshihua.com/tags/mathematics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Fast Can a Sailboat Go: A Constrained Optimization Approach</title>
+      <link>https://jamesmshihua.com/post/sailboat-path-opt/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesmshihua.com/post/sailboat-path-opt/</guid>
+      
+        <description>Physics Behind a Sailboat In some areas Hong Kong, to name a few, Repulse Bay, Sai Kung, etc.</description>
+      
+    </item>
+    
     <item>
       <title>Gradient Descent: Newton and Quasi-Newton Method</title>
       <link>https://jamesmshihua.com/post/gd-quasi-newton/</link>
